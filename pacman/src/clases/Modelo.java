@@ -31,6 +31,10 @@ public class Modelo { //¿Debería tener la clase tablero definida internamente 
         return T.getElemento(X, Y);
     }
     
+    public Pair getCarro(){
+        return T.getCarro();
+    }
+    
 }
 
 

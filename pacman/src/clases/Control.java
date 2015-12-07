@@ -16,8 +16,8 @@ public class Control {
     //Cada que se presione una tecla, Vista hará llamado a esta clase para que cambie los 
     //datos en la matriz lógica y modifique desde aquí las imágenes del JFrame
     
-    private Vista v;
-    private Modelo m;
+    Vista v;
+    Modelo m;
     private movimientoPacman mv_pacman;
     private Clyde mv_clyde;
     private Blinky mv_blinky;
@@ -28,14 +28,14 @@ public class Control {
     public Control() throws IOException{
         
         m = new Modelo();//inicializa modelo
-        v = new Vista();//inicializa vista
+        v = new Vista(this);//inicializa vista
         
         mv_pacman = new movimientoPacman(this);
-        mv_clyde = new Clyde(900);
-        mv_pinky = new Pinky(200);
-        mv_inky = new Inky(400);
-        mv_blinky = new Blinky(300);
-        mv_llamita= new Llama(50);
+        mv_clyde = new Clyde(900,this);
+        mv_pinky = new Pinky(200,this);
+        mv_inky = new Inky(400,this);
+        mv_blinky = new Blinky(300,this);
+        mv_llamita= new Llama(50,this);
         
         mv_inky.setX(7);mv_inky.setY(15);
         mv_pinky.setX(6);mv_pinky.setY(16);
@@ -49,7 +49,7 @@ public class Control {
         mv_pacman.addObserver(mv_blinky);
         mv_pacman.addObserver(mv_inky);
         mv_pacman.addObserver(mv_pinky);
-        mv_pacman.addObserver((Observer) mv_llamita);
+        //mv_pacman.addObserver((Observer) mv_llamita);
 
         //Inicializamos los hilos
         mv_clyde.start();
@@ -62,7 +62,7 @@ public class Control {
     }
     
     public void Terminar(){//Terminar los hilos de ejecución
-        v.Terminar(); //también dejamos de mostrar todos los elementos
+        //v.Terminar(); //también dejamos de mostrar todos los elementos
         mv_pacman.Comenzar(false);
         mv_llamita.Comenzar(false);
         mv_pinky.Comenzar(false);
@@ -77,5 +77,9 @@ public class Control {
     
     public void EstadoNormal() throws InterruptedException{
        mv_pacman.setEstado(new EstadoNormal(v)); 
+    }
+    
+    public int getTeclaActiva(){
+        return v.getTeclaActiva();
     }
 }

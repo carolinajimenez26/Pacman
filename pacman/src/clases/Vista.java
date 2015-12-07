@@ -32,8 +32,12 @@ public class Vista extends JFrame{
     
     private int teclaActiva = 39;//para que el carro inicie moviéndose
     private int teclaLlama = 0;
+    
+    Control control;
 
-    public Vista(){
+    public Vista(Control control){
+        
+        this.control = control;
         
         KeyListener listener = new Vista.MyKeyListener(this);
         addKeyListener(listener);
@@ -122,20 +126,20 @@ public class Vista extends JFrame{
         pacman.setImage("/imagenes/carro_left.png");
     }
     
-    public void moveRight(String o){//Actualiza la imagen del objeto si es a la derecha
+    public void moveRight(){//Actualiza la imagen del objeto si es a la derecha
         pacman.setImage("/imagenes/carro_right.png");
     }
     
-    public void moveDown(String o){//Actualiza la imagen del objeto si es abajo
+    public void moveDown(){//Actualiza la imagen del objeto si es abajo
         pacman.setImage("/imagenes/carro_down.png");
     }
     
-    public void moveUp(String o){//Actualiza la imagen del objeto si es arriba
+    public void moveUp(){//Actualiza la imagen del objeto si es arriba
         pacman.setImage("/imagenes/carro_up.png");
     }
     
     public void Terminar(){//Terminar significa poner invisible todos los elementos que habían en el juego
-        
+        control.Terminar();
         amarillito.setVisible(false);
         rojito.setVisible(false);
         azulito.setVisible(false);
@@ -148,6 +152,7 @@ public class Vista extends JFrame{
         
         if(pacman.getLocation().x==Y*40 && pacman.getLocation().y==X*40){
                 pacman.setVisible(false);
+                Terminar();
         }
            
         if(amarillito.getLocation().x==Y*40 && amarillito.getLocation().y==X*40){

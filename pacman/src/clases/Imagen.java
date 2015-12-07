@@ -28,10 +28,7 @@ import javax.swing.JPanel;
         
        public void setImage(String fileName){
         setIcon(new ImageIcon(getClass().getResource(fileName))); 
-        
-        
-
-    }
+       }
 
     public Icon getIcon() {
         return icon;

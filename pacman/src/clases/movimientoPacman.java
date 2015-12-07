@@ -30,7 +30,7 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
         
     }
 
-    public void setX(int X) {
+    public void setX(int X){//cada que movamos el carro debemos actualizar sus direcciones
         this.X = X;
     }
 
@@ -47,78 +47,69 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
         
         try {
             while(comenzar){
-                int Y=((juego.pacman.getLocation().x)/40);
-                int X=((juego.pacman.getLocation().y)/40);
+                
                 Thread.sleep(getVelocidad());
 
                 //IZQUIERDA
                 if(teclaActual == 37){
-                    
-                     if(t.matriz[X][Y-1]==0){
-                        
-                        juego.pacman.setImage(izquierda);
-                        juego.pacman.setBounds((Y-1)*40, X*40, 40, 40);    
-                        t.matriz[X][Y] = 0;
-                        t.matriz[X][Y-1] = 9;//carro
-                        Thread.sleep(getVelocidad());
-                    }
-
+                    if(control.m.getElemento(X, Y-1) == 0){
+                         control.v.moveLeft();
+                         control.v.pacman.setBounds((Y-1)*40, X*40, 40, 40); 
+                         control.m.QuitaElemento(X, Y);
+                         control.m.AgregaElemento(X, Y-1, 9);
+                         setY(Y-1);
+                         Thread.sleep(getVelocidad());
+                     }   
                 }
+
+                
                 //ARRIBA
-                if(teclaActual==38 ){
-                    
-                     if(t.matriz[X-1][Y]==0){
-
-                       juego.pacman.setImage(arriba);
-                       juego.pacman.setBounds(Y*40, (X-1)*40, 40, 40); 
-                       t.matriz[X][Y] = 0;
-                       t.matriz[X-1][Y] = 9;
-                       Thread.sleep(getVelocidad());
-
-                       
-                    }
-
+                if(teclaActual == 38 ){
+                    if(control.m.getElemento(X-1, Y) == 0){
+                         control.v.moveUp();
+                         control.v.pacman.setBounds(Y*40, (X-1)*40, 40, 40);
+                         control.m.QuitaElemento(X, Y);
+                         control.m.AgregaElemento(X-1, Y, 9);
+                         setX(X-1);
+                         Thread.sleep(getVelocidad());
+                    } 
                 }
                 
                 //DERECHA
                 if(teclaActual==39){
-                                   
-                    if(t.matriz[X][Y+1]==0){
-
-                        juego.pacman.setImage(derecha);
-                        juego.pacman.setBounds((Y+1)*40, X*40, 40, 40);
-                        t.matriz[X][Y] = 0;
-                        t.matriz[X][Y+1] = 9;
-                        Thread.sleep(getVelocidad());
-                    }
-
+                    if(control.m.getElemento(X, Y+1) == 0){
+                         control.v.moveRight();
+                         control.v.pacman.setBounds((Y+1)*40, X*40, 40, 40);
+                         control.m.QuitaElemento(X, Y);
+                         control.m.AgregaElemento(X, Y+1, 9);
+                         setY(Y+1);
+                         Thread.sleep(getVelocidad());
+                    } 
                 }
                 
                 //ABAJO
                 if(teclaActual==40){
-                    
-                     if(t.matriz[X+1][Y]==0){
-
-                        juego.pacman.setImage(abajo);
-                        juego.pacman.setBounds(Y*40, (X+1)*40, 40, 40);    
-                        t.matriz[X][Y] = 0;
-                        t.matriz[X+1][Y] = 9;
-                        Thread.sleep(getVelocidad());
-                    }
-
+                    if(control.m.getElemento(X+1, Y) == 0){
+                         control.v.moveDown();
+                         control.v.pacman.setBounds(Y*40, (X+1)*40, 40, 40);   
+                         control.m.QuitaElemento(X, Y);
+                         control.m.AgregaElemento(X+1, Y, 9);
+                         setX(X+1);
+                         Thread.sleep(getVelocidad());
+                    } 
                 }
                 
-                if(control.actualiza() != 32){//para que no se pare si apreta la tecla de la llama
+                if(control.getTeclaActiva() != 32){//para que no se pare si apreta la tecla de la llama
                     
-                    teclaActual=actualiza();//el control sabe cuál es la tecla actual en Vista
+                    teclaActual = control.getTeclaActiva();//el control sabe cuál es la tecla actual en Vista
                 }
                 
            }
         } catch (InterruptedException ex) {
-           System.out.println("Ocurrio un error " + ex);
-           
+           System.out.println("Ocurrio un error en la clase movimientoPacman" + ex);
         }
         
     }
+
 
 }
