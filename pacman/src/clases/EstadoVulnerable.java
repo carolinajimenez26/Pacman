@@ -8,15 +8,15 @@ import java.util.logging.Logger;
 public class EstadoVulnerable extends EstadoPacman{//Este debe comunicarse con el controlador, para que
     //a su vez el controlador modifique lo que éste desea
         
-    public EstadoVulnerable(Vista v) {
-        this.v = v;
+    public EstadoVulnerable(Control control) {
+        this.control = control;
         SetEstado();
     }
 
     @Override
     public void SetEstado() {
-        //Llama a la vista y cambia los atributos del pacman
-        //detiene el hilo de la llamita
+        control.mv_llamita.Comenzar(false);//deja de disparar
+        control.v.setImagenVulnerable();//cambia la imagen del pacman
     }
     
   

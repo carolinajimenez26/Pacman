@@ -7,15 +7,14 @@ package clases;
 
 public class EstadoNormal extends EstadoPacman{ 
 
-    public EstadoNormal(Vista v) {
-        this.v = v;
+    public EstadoNormal(Control control) {
+        this.control = control;
         SetEstado();
     }
 
     @Override
     public void SetEstado() {
-        //actualiza en vista las imágenes del pacman
-        //vuelve a iniciar el hilo de la llamita
-        
+        control.mv_llamita.Comenzar(true);//empieza a disparar
+        control.v.setImagenNormal();//cambia la imagen del pacman
     }
 }

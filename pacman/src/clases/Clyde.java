@@ -57,7 +57,7 @@ public class Clyde  extends movimiento{
             if(control.m.getElemento(X, aux-1) == 3){
                 try {
                     //control.v.eliminar(X, aux-1);//elimina la cereza del juego
-                    control.v.cereza.setVisible(false);
+                    //control.v.cereza.setVisible(false);
                     if(control.m.getElemento(X, aux-1) == 3) control.m.QuitaElemento(X, aux-1);//elimina la cereza de la matriz
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
@@ -87,7 +87,7 @@ public class Clyde  extends movimiento{
             if(control.m.getElemento(X, aux+1) == 3){
                 try {
                     //control.v.eliminar(X, aux+1);//elimina la cereza del juego
-                    control.v.cereza.setVisible(false);
+                    //control.v.cereza.setVisible(false);
                     if(control.m.getElemento(X, aux+1) == 3) control.m.QuitaElemento(X, aux+1);//elimina la cereza de la matriz
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
@@ -116,7 +116,7 @@ public class Clyde  extends movimiento{
             if(control.m.getElemento(aux+1, Y) == 3){
                 try {
                     //control.v.eliminar(aux+1, Y);//elimina la cereza del juego
-                    control.v.cereza.setVisible(false);
+                    //control.v.cereza.setVisible(false);
                     if(control.m.getElemento(aux+1, Y) == 3) control.m.QuitaElemento(aux+1, Y);//elimina la cereza de la matriz
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
@@ -146,7 +146,7 @@ public class Clyde  extends movimiento{
             if(control.m.getElemento(aux-1, Y) == 3){
                 try {
                     //control.v.eliminar(aux-1, Y);//elimina la cereza del juego
-                    control.v.cereza.setVisible(false);
+                    //control.v.cereza.setVisible(false);
                     if(control.m.getElemento(aux-1, Y) == 3) control.m.QuitaElemento(aux-1, Y);//elimina la cereza de la matriz
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {

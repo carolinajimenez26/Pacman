@@ -6,7 +6,7 @@
 package clases;
 
 public abstract class EstadoPacman{
-    Vista v;
+    Control control;
     
     // Método que deberán crear las clases que hereden de ésta
     public abstract void SetEstado();

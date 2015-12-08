@@ -123,19 +123,23 @@ public class Vista extends JFrame{
     }
    
     public void moveLeft(){//Actualiza la imagen del objeto si es a la izquierda
-        pacman.setImage("/imagenes/carro_left.png");
+        if(control.getEstadoNormal()) pacman.setImage("/imagenes/carro_left.png");
+        else pacman.setImage("/imagenes/pacman2_right.gif");
     }
     
     public void moveRight(){//Actualiza la imagen del objeto si es a la derecha
-        pacman.setImage("/imagenes/carro.png");
+        if(control.getEstadoNormal()) pacman.setImage("/imagenes/carro.png");
+        else pacman.setImage("/imagenes/pacman2_right.gif");
     }
     
     public void moveDown(){//Actualiza la imagen del objeto si es abajo
-        pacman.setImage("/imagenes/carro_down.png");
+        if(control.getEstadoNormal()) pacman.setImage("/imagenes/carro_down.png");
+        else pacman.setImage("/imagenes/pacman2_right.gif");
     }
     
     public void moveUp(){//Actualiza la imagen del objeto si es arriba
-        pacman.setImage("/imagenes/carro_up.png");
+        if(control.getEstadoNormal()) pacman.setImage("/imagenes/carro_up.png");
+        else pacman.setImage("/imagenes/pacman2_right.gif");
     }
     
     public void Terminar(){//Terminar significa poner invisible todos los elementos que habían en el juego

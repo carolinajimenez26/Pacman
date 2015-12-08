@@ -19,14 +19,15 @@ public class Control {
     Vista v;
     Modelo m;
     private movimientoPacman mv_pacman;
-    private Clyde mv_clyde;
+    Clyde mv_clyde;
     private Blinky mv_blinky;
     private Inky mv_inky;
     private Pinky mv_pinky;
-    private Llama mv_llamita;
+    Llama mv_llamita;
+    private boolean estadoNormal;
     
     public Control() throws IOException{
-        
+        estadoNormal = true;
         m = new Modelo();//inicializa modelo
         v = new Vista(this);//inicializa vista
         
@@ -69,6 +70,10 @@ public class Control {
 
     }
     
+    public boolean getEstadoNormal(){
+        return estadoNormal;
+    }
+    
     public void Terminar(){//Terminar los hilos de ejecución
         //v.Terminar(); //también dejamos de mostrar todos los elementos
         mv_pacman.Comenzar(false);
@@ -80,11 +85,13 @@ public class Control {
     }
     
     public void EstadoVulnerable() throws InterruptedException{
-       mv_pacman.setEstado(new EstadoVulnerable(v));
+       mv_pacman.setEstado(new EstadoVulnerable(this));
+       estadoNormal = false;
     }
     
     public void EstadoNormal() throws InterruptedException{
-       mv_pacman.setEstado(new EstadoNormal(v)); 
+       mv_pacman.setEstado(new EstadoNormal(this)); 
+       estadoNormal = true;
     }
     
     public int getTeclaActiva(){
