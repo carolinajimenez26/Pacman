@@ -5,7 +5,9 @@
         <group>
             <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/tablero.java</file>
             <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/movimientoPacman.java</file>
+            <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/EstadoVulnerable.java</file>
             <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/Clyde.java</file>
+            <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/EstadoPacman.java</file>
             <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/Control.java</file>
             <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/Vista.java</file>
             <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/Modelo.java</file>
@@ -14,6 +16,8 @@
             <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/Pinky.java</file>
             <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/Imagen.java</file>
             <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/Inky.java</file>
+            <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/EstadoNormal.java</file>
+            <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/Main.java</file>
             <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/Pair.java</file>
             <file>file:/home/carolinajimenez26/Documentos/U/Quinto%20Semestre/Programación%20IV/Proyectos/git/Pacman/pacman/src/clases/movimiento.java</file>
         </group>

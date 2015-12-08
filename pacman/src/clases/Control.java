@@ -75,6 +75,10 @@ public class Control {
         return estadoNormal;
     }
     
+    public void ChangeEstadoNormal(){
+        estadoNormal = !estadoNormal;
+    }
+    
     public void CuentaMorir(){//empieza a contar
         morir++;
         if(morir == 4) Terminar();
@@ -96,7 +100,6 @@ public class Control {
     public void EstadoVulnerable() throws InterruptedException{
        mv_pacman.setEstado(new EstadoVulnerable(this));
        estadoNormal = false;
-       mv_pacman.startCounting();//solo debe estar en estado vulnerable por un tiempo
     }
     
     public void EstadoNormal() throws InterruptedException{

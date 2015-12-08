@@ -36,10 +36,7 @@ public class Blinky extends movimiento{
             if(Alerta(3)) derechaV();
             if(Alerta(4)) izquierdaV();
             else{
-                moveUp();
                 moveDown();
-                moveRight();
-                moveLeft();
             }
         }
     }
