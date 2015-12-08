@@ -82,4 +82,12 @@ public class Control {
     public int getTeclaActiva(){
         return v.getTeclaActiva();
     }
+    
+    public int getTeclaLlama(){
+        return v.getTeclallama();
+    }
+
+    void setTeclaLlama(int e) {
+        v.setTeclallama(e);
+    }
 }

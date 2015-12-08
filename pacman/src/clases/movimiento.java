@@ -70,5 +70,65 @@ public abstract class movimiento extends Thread implements Observer{
     public abstract void moveRight();
     public abstract void moveDown();
     public abstract void moveUp();
+    
+    public boolean Alerta(int mv){
+        
+        Pair p = control.m.getCarro();
+
+            if(mv == 1){//arriba
+                
+                for(int i = 1; i < 3; i++){
+                
+                    if(Y-(40*i) == p.getSecond() && X == p.getFirst()) return true;
+                    else{
+                        if(Y-(40*i) == p.getSecond() && (X-(40*i) == p.getFirst() || X + (40*i) == p.getFirst())) return true;
+                    }
+                }
+                
+                return false;
+            }
+            
+             if(mv == 2){//abajo
+                
+                for(int i = 1; i < 3; i++){
+                
+                    if(Y+(40*i) == p.getSecond() && X == p.getFirst()) return true;
+                    else{
+                        if(Y+(40*i) == p.getSecond() && (X-(40*i) == p.getFirst() || X+(40*i) == p.getFirst())) return true;
+                    }
+                }
+                
+                return false;
+            }
+             
+             
+            if(mv == 3){//derecha
+                
+                for(int i = 1; i < 3; i++){
+                
+                    if(Y==p.getSecond() && X+(40*i) == p.getFirst()) return true;
+                    else{
+                        if(X+(40*i) == p.getFirst() && (Y+(40*i) == p.getSecond() || Y+(40*i) == p.getSecond())) return true;
+                    }
+                }
+                
+                return false;
+            }
+            
+             if(mv == 4){//izquierda
+                
+                for(int i = 1; i < 3; i++){
+                
+                    if(Y==p.getSecond() && X-(40*i) == p.getFirst()) return true;
+                    else{
+                        if(X-(40*i) == p.getFirst() && (Y+(40*i) == p.getSecond() || Y+(40*i) == p.getSecond())) return true;
+                    }
+                }
+                
+                return false;
+            }
+             
+            return false;
+    }
      
 }
