@@ -6,26 +6,17 @@ import java.util.Observable;
 import java.util.Observer;
 
 public abstract class movimiento extends Thread implements Observer{
-    boolean estadoNormal;
     int X,Y;//coordenadas donde se encuentra el objeto EN LA MATRIZ
     boolean comenzar;
     int velocidad;//cuanto tiempo espera
     Control control;
+    boolean estadoNormal;
     
     public movimiento(int velocidad, Control control) throws IOException{
         this.velocidad = velocidad;
-        estadoNormal = true; //inicia en estado normal  
         this.control = control;
         comenzar = true;//así inicia
-        estadoNormal = true;//inicia en estado normal
-    }
-    
-    public boolean getEstadoNormal(){
-        return estadoNormal;
-    }
-    
-    public void setEstadoNormal(boolean b){
-        estadoNormal = b;
+        estadoNormal = true;
     }
     
     public void setX(int X){
@@ -56,13 +47,21 @@ public abstract class movimiento extends Thread implements Observer{
         return Y;
     }
     
+    public boolean getEstadoNormal(){
+        return estadoNormal;
+    }
+    
+    public void setEstadoNormal(boolean b){
+        estadoNormal = b;
+    }
+    
     @Override
     public void update(Observable o, Object o1) {//Este se ejecuta cada que se les notifique un cambio
         //a los observadores
         //intercambia el estado anterior
         System.err.println("El pacman cambió de estado");
-       if(getEstadoNormal()) setEstadoNormal(false);
-       else setEstadoNormal(true);
+        if(getEstadoNormal()) setEstadoNormal(false);
+        else setEstadoNormal(true);
     }
     
     @Override

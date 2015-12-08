@@ -34,15 +34,20 @@ public class tablero {
     }
     
     public void Agrega(int filas, int columnas, int elemento){
-        matriz[filas][columnas] = elemento; //Agrega un elemento en la matriz
+        if(DimensionValida(filas,columnas)) matriz[filas][columnas] = elemento; //Agrega un elemento en la matriz
     }
     
     public void Quita(int filas, int columnas){
-        matriz[filas][columnas] = 0;//elimina el elemento que había en esa posición
+        if(DimensionValida(filas,columnas)) matriz[filas][columnas] = 0;//elimina el elemento que había en esa posición
     }
     
     public int getElemento(int filas, int columnas){
-        return matriz[filas][columnas];
+        if(DimensionValida(filas,columnas)) return matriz[filas][columnas];
+        return -1;//si no
+    }
+    
+    public boolean DimensionValida(int X, int Y){
+        return X < 15 && Y < 30;
     }
     
     public Pair getCarro(){//busca donde está el pacman

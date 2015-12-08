@@ -13,6 +13,7 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
     private EstadoPacman estadoPacman;
     private Control control;
     public int teclaActual = 39;//Para que empiece moviéndose
+    private int contador = 0;
     
     public movimientoPacman(Control control){
         this.control = control;//para tener una comunicación directa con el controlador del juego
@@ -22,12 +23,13 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
         comenzar = b;
     }
     
-    public void setEstado(EstadoPacman estadoPacman) {
+    public void setEstado(EstadoPacman estadoPacman) throws InterruptedException {
          
-         this.estadoPacman = estadoPacman;//actualiza su estado
-         setChanged();
-         notifyObservers();//les notificamos que cambió su estado
-        
+        this.estadoPacman = estadoPacman;//actualiza su estado
+        setChanged();
+        notifyObservers();//les notificamos que cambió su estado
+        //if(estadoPacman == (new EstadoNormal(control))) control.EstadoNormal();
+        //else control.EstadoVulnerable();
     }
 
     public void setX(int X){//cada que movamos el carro debemos actualizar sus direcciones
@@ -50,6 +52,10 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
         return velocidad;
     }
     
+    void startCounting() {
+        contador++;
+    }
+    
     @Override
     public void run(){
         
@@ -57,7 +63,16 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
             while(comenzar){
                 
                 Thread.sleep(getVelocidad());
-
+                
+                if(!control.getEstadoNormal()) startCounting();//si no está en estado normal, debe ir contando
+                
+                if(contador == 5000){//¡¡¡CAMBIAAAAAARR!!!
+                    setEstado(new EstadoNormal(control));//volvemos al estado original
+                    contador = 0;//volvemos a inicializar
+                }
+                //System.err.println("Contador:"+contador);
+                //System.out.println("EstadoNormal: "+ control.getEstadoNormal());
+                
                 //IZQUIERDA
                 if(teclaActual == 37){
                     if(control.m.getElemento(X, Y-1) == 0){

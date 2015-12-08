@@ -87,6 +87,7 @@ public class Control {
     public void EstadoVulnerable() throws InterruptedException{
        mv_pacman.setEstado(new EstadoVulnerable(this));
        estadoNormal = false;
+       mv_pacman.startCounting();//solo debe estar en estado vulnerable por un tiempo
     }
     
     public void EstadoNormal() throws InterruptedException{
