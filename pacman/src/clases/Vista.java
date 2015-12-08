@@ -127,7 +127,7 @@ public class Vista extends JFrame{
     }
     
     public void moveRight(){//Actualiza la imagen del objeto si es a la derecha
-        pacman.setImage("/imagenes/carro_right.png");
+        pacman.setImage("/imagenes/carro.png");
     }
     
     public void moveDown(){//Actualiza la imagen del objeto si es abajo
