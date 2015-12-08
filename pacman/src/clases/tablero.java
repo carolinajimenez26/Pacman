@@ -47,7 +47,7 @@ public class tablero {
     }
     
     public boolean DimensionValida(int X, int Y){
-        return X < 15 && Y < 30;
+        return X < 15 && X >= 0 && Y < 30 && Y>= 0;
     }
     
     public Pair getCarro(){//busca donde está el pacman

@@ -25,6 +25,7 @@ public class Control {
     private Pinky mv_pinky;
     Llama mv_llamita;
     private boolean estadoNormal;
+    private int morir = 0;//muere si todos los fantasmas se eliminan
     
     public Control() throws IOException{
         estadoNormal = true;
@@ -74,6 +75,11 @@ public class Control {
         return estadoNormal;
     }
     
+    public void CuentaMorir(){//empieza a contar
+        morir++;
+        if(morir == 4) Terminar();
+    }
+    
     public void Terminar(){//Terminar los hilos de ejecución
         //v.Terminar(); //también dejamos de mostrar todos los elementos
         mv_pacman.Comenzar(false);
@@ -82,6 +88,9 @@ public class Control {
         mv_blinky.Comenzar(false);
         mv_inky.Comenzar(false);
         mv_clyde.Comenzar(false);
+        
+        if(morir == 4) v.GANASTE.setVisible(true);
+        else v.PERDISTE.setVisible(true);
     }
     
     public void EstadoVulnerable() throws InterruptedException{

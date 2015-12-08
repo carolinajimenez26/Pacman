@@ -17,9 +17,6 @@ public class Llama extends movimiento{
         while(comenzar){
             System.err.println();//sin esto no funciona XD
             if(control.getTeclaLlama() == 32 && getEstadoNormal()){//Sólo puede disparar si está en estado normal
-                System.err.println("Llama run()");
-                System.out.println("TeclaLlama(): "+ control.getTeclaLlama());
-                System.out.println("estadoNormal(): " + getEstadoNormal());
                 
                 if(control.getTeclaActiva() == 37){ //Izquierda
                     moveLeft();

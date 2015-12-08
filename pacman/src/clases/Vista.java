@@ -33,6 +33,7 @@ public class Vista extends JFrame{
     private int teclaActiva = 39;//para que el carro inicie moviéndose
     private int teclaLlama = 0;
     
+    
     Control control;
 
     public Vista(Control control){
@@ -161,18 +162,22 @@ public class Vista extends JFrame{
            
         if(amarillito.getLocation().x==Y*40 && amarillito.getLocation().y==X*40){
                 amarillito.setVisible(false);
+                control.CuentaMorir();
         }
         
         if(rosadito.getLocation().x==Y*40 && rosadito.getLocation().y==X*40){
-            rosadito.setVisible(false);    
+            rosadito.setVisible(false);
+            control.CuentaMorir();
         }
         
         if(azulito.getLocation().x==Y*40 && azulito.getLocation().y==X*40){
             azulito.setVisible(false);
+            control.CuentaMorir();
         }
         
         if(rojito.getLocation().x==Y*40 && rojito.getLocation().y==X*40){
             rojito.setVisible(false);
+            control.CuentaMorir();
         }
         
         if(cereza.getLocation().x==Y*40 && cereza.getLocation().y==X*40){
