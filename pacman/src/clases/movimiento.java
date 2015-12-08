@@ -16,6 +16,7 @@ public abstract class movimiento extends Thread implements Observer{
         this.velocidad = velocidad;
         estadoNormal = true; //inicia en estado normal
         this.control = control;
+        comenzar = true;//así inicia
     }
     
     public boolean getEstadoNormal(){
