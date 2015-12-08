@@ -38,6 +38,14 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
         this.Y = Y;
     }
     
+    public int getX(){
+        return X;
+    }
+    
+    public int getY(){
+        return Y;
+    }
+    
     public int getVelocidad(){
         return velocidad;
     }
@@ -83,6 +91,10 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
                          control.m.QuitaElemento(X, Y);
                          control.m.AgregaElemento(X, Y+1, 9);
                          setY(Y+1);
+                         Pair p = control.m.getCarro();
+                         //System.out.println("X: " + getX() + " Y: " + getY());
+                         //System.out.println("X: "+p.getFirst()+" Y:"+p.getSecond());//A ver si si se está moviendo
+                         //System.err.println("elemento anterior: "+control.m.getElemento((p.getFirst()-1),(p.getSecond()-1)) );
                          Thread.sleep(getVelocidad());
                     } 
                 }

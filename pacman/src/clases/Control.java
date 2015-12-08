@@ -38,9 +38,17 @@ public class Control {
         mv_llamita= new Llama(50,this);
         
         mv_inky.setX(7);mv_inky.setY(15);
+        m.AgregaElemento(7, 15, 2);
+        
         mv_pinky.setX(6);mv_pinky.setY(16);
+        m.AgregaElemento(6, 16, 2);
+        
         mv_blinky.setX(6);mv_blinky.setY(13);
+        m.AgregaElemento(6, 13, 2);
+        
         mv_clyde.setX(1);mv_clyde.setY(24);
+        m.AgregaElemento(1, 24, 2);
+        
         mv_pacman.setX(7);mv_pacman.setY(1);
         //cerecita --> columna: 27, fila: 1
         
