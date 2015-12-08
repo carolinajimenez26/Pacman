@@ -170,6 +170,10 @@ public class Vista extends JFrame{
         if(rojito.getLocation().x==Y*40 && rojito.getLocation().y==X*40){
             rojito.setVisible(false);
         }
+        
+        if(cereza.getLocation().x==Y*40 && cereza.getLocation().y==X*40){
+            cereza.setVisible(false);
+        }
     }
     
     public int getTeclaActiva(){

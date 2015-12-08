@@ -59,6 +59,7 @@ public abstract class movimiento extends Thread implements Observer{
     public void update(Observable o, Object o1) {//Este se ejecuta cada que se les notifique un cambio
         //a los observadores
         //intercambia el estado anterior
+        System.err.println("El pacman cambió de estado");
        if(getEstadoNormal()) setEstadoNormal(false);
        else setEstadoNormal(true);
     }

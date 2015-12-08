@@ -55,6 +55,8 @@ public class Inky extends movimiento{
             control.v.azulito.setBounds((Y-i)*40,X*40, 40, 40); 
             if(control.m.getElemento(X, aux-1) == 3){
                 try {
+                    control.v.cereza.setVisible(false);
+                    if(control.m.getElemento(X, aux-1) == 3) control.m.QuitaElemento(X, aux-1);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Inky.class.getName()).log(Level.SEVERE, null, ex);
@@ -82,6 +84,8 @@ public class Inky extends movimiento{
             control.v.azulito.setBounds((Y+i)*40,X*40, 40, 40); 
             if(control.m.getElemento(X, aux+1) == 3){
                 try {
+                    control.v.cereza.setVisible(false);
+                    if(control.m.getElemento(X, aux+1) == 3) control.m.QuitaElemento(X, aux+1);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Inky.class.getName()).log(Level.SEVERE, null, ex);
@@ -108,6 +112,8 @@ public class Inky extends movimiento{
             control.v.azulito.setBounds(Y*40,(X+i)*40, 40, 40); 
             if(control.m.getElemento(aux+1, Y) == 3){
                 try {
+                    control.v.cereza.setVisible(false);
+                    if(control.m.getElemento(aux+1, Y) == 3) control.m.QuitaElemento(aux+1, Y);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Inky.class.getName()).log(Level.SEVERE, null, ex);
@@ -135,6 +141,8 @@ public class Inky extends movimiento{
             control.v.azulito.setBounds(Y*40,(X-i)*40, 40, 40); 
             if(control.m.getElemento(aux-1, Y) == 3){
                 try {
+                    control.v.cereza.setVisible(false);
+                    if(control.m.getElemento(aux-1, Y) == 3) control.m.QuitaElemento(aux-1, Y);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Inky.class.getName()).log(Level.SEVERE, null, ex);
