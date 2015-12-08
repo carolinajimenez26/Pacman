@@ -38,7 +38,10 @@ public class Inky extends movimiento{
             if(Alerta(3)) derechaV();
             if(Alerta(4)) izquierdaV();
             else{
+                moveDown();
                 moveUp();
+                moveLeft();
+                moveRight();
             }
         }
     }
@@ -48,7 +51,7 @@ public class Inky extends movimiento{
         int i = 1;
         int aux = Y;
 
-        if(control.m.getElemento(X, aux-1) == 0 && !Alerta(4)){
+        if((control.m.getElemento(X, aux-1) == 0 || control.m.getElemento(X, aux-1) == 3) && !Alerta(4)){
             control.v.azulito.setBounds((Y-i)*40,X*40, 40, 40); 
             if(control.m.getElemento(X, aux-1) == 3){
                 try {
@@ -75,7 +78,7 @@ public class Inky extends movimiento{
         int i = 1;
         int aux = Y;
 
-        if(control.m.getElemento(X, aux+1) == 0 && !Alerta(3)){
+        if((control.m.getElemento(X, aux+1) == 0 || control.m.getElemento(X, aux+1) == 3) && !Alerta(3)){
             control.v.azulito.setBounds((Y+i)*40,X*40, 40, 40); 
             if(control.m.getElemento(X, aux+1) == 3){
                 try {
@@ -101,7 +104,7 @@ public class Inky extends movimiento{
         int i = 1;
         int aux = X;
 
-        if(control.m.getElemento(aux+1, Y) == 0 && !Alerta(2)){
+        if((control.m.getElemento(aux+1, Y) == 0 || control.m.getElemento(aux+1, Y) == 3) && !Alerta(2)){
             control.v.azulito.setBounds(Y*40,(X+i)*40, 40, 40); 
             if(control.m.getElemento(aux+1, Y) == 3){
                 try {
@@ -128,7 +131,7 @@ public class Inky extends movimiento{
         int i = 1;
         int aux = X;
 
-        if(control.m.getElemento(aux-1, Y) == 0 && !Alerta(1)){
+        if((control.m.getElemento(aux-1, Y) == 0 || control.m.getElemento(aux-1, Y) == 3) && !Alerta(1)){
             control.v.azulito.setBounds(Y*40,(X-i)*40, 40, 40); 
             if(control.m.getElemento(aux-1, Y) == 3){
                 try {

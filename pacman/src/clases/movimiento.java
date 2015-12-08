@@ -14,7 +14,7 @@ public abstract class movimiento extends Thread implements Observer{
     
     public movimiento(int velocidad, Control control) throws IOException{
         this.velocidad = velocidad;
-        estadoNormal = true; //inicia en estado normal
+        estadoNormal = true; //inicia en estado normal  
         this.control = control;
         comenzar = true;//así inicia
     }
