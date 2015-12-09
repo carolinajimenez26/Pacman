@@ -26,7 +26,7 @@ public class Clyde  extends movimiento{
         }
     }
     
-    public void move() throws InterruptedException{//El fantasma se mueve dependiendo de el estado en el que el pacman se encuentre
+    public void moveRandom() throws InterruptedException{
         if(estadoNormal){
             moveRight();
             moveUp();
@@ -42,6 +42,45 @@ public class Clyde  extends movimiento{
                 moveUp();
                 moveLeft();
                 moveDown();
+            }
+        }
+    }
+    
+    public void move() throws InterruptedException{//El fantasma se mueve dependiendo de el estado en el que el pacman se encuentre
+        
+        if(estadoNormal){
+            int movimiento = Maximiza();
+            switch(movimiento){
+                case 0 :
+                    moveLeft();
+                    break;
+                case 1 :
+                    moveRight();
+                    break;
+                case 2 :
+                    moveDown();
+                    break;
+                case 3 :
+                    moveUp();
+                    break;
+                default : moveRandom();
+            }
+        }else{
+            int movimiento = Minimiza();
+            switch(movimiento){
+                case 0 :
+                    izquierdaV();
+                    break;
+                case 1 :
+                    derechaV();
+                    break;
+                case 2 :
+                    abajoV();
+                    break;
+                case 3 :
+                    arribaV();
+                    break;
+                default : moveRandom();
             }
         }
                 

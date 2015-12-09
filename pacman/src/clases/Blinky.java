@@ -1,6 +1,8 @@
 package clases;
 
 import java.io.IOException;
+import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
 import java.util.Locale;
 import java.util.Observable;
 import java.util.Observer;
@@ -24,7 +26,7 @@ public class Blinky extends movimiento{
         }
     }
     
-    public void move() throws InterruptedException{//El fantasma se mueve dependiendo de el estado en el que el pacman se encuentre
+    public void moveRandom() throws InterruptedException{
         if(estadoNormal){
             moveUp();
             moveDown();
@@ -40,13 +42,53 @@ public class Blinky extends movimiento{
             }
         }
     }
+    
+    public void move() throws InterruptedException{//El fantasma se mueve dependiendo de el estado en el que el pacman se encuentre
+        if(estadoNormal){
+            
+            int movimiento = Maximiza();
+            switch(movimiento){
+                case 0 :
+                    moveLeft();
+                    break;
+                case 1 :
+                    moveRight();
+                    break;
+                case 2 :
+                    moveDown();
+                    break;
+                case 3 :
+                    moveUp();
+                    break;
+                default : moveRandom();
+            }
+        }else{
+            int movimiento = Minimiza();
+            switch(movimiento){
+                case 0 :
+                    izquierdaV();
+                    break;
+                case 1 :
+                    derechaV();
+                    break;
+                case 2 :
+                    abajoV();
+                    break;
+                case 3 :
+                    arribaV();
+                    break;
+                default : moveRandom();
+            }
+        }
+    }
+    
 
     @Override
     public void moveLeft() {
         int i = 1;
         int aux = Y;
 
-        if((control.m.getElemento(X, aux-1) == 0 || control.m.getElemento(X, aux-1) == 3) && !Alerta(4)){
+        if(CanMoveLeft()) {//&& !Alerta(4)){
             control.v.rojito.setBounds((Y-i)*40,X*40, 40, 40); 
             if(control.m.getElemento(X, aux-1) == 3){
                 try {
@@ -75,7 +117,7 @@ public class Blinky extends movimiento{
         int i = 1;
         int aux = Y;
 
-        if((control.m.getElemento(X, aux+1) == 0 || control.m.getElemento(X, aux+1) == 3) && !Alerta(3)){
+        if(CanMoveRight()) {//&& !Alerta(3)){
             control.v.rojito.setBounds((Y+i)*40,X*40, 40, 40); 
             if(control.m.getElemento(X, aux+1) == 3){
                 try {
@@ -103,7 +145,7 @@ public class Blinky extends movimiento{
         int i = 1;
         int aux = X;
 
-        if((control.m.getElemento(aux+1, Y) == 0 || control.m.getElemento(aux+1, Y) == 3) && !Alerta(2)){
+        if(CanMoveDown()){ //&& !Alerta(2)){
             control.v.rojito.setBounds(Y*40,(X+i)*40, 40, 40); 
             if(control.m.getElemento(aux+1, Y) == 3){
                 try {
@@ -132,7 +174,7 @@ public class Blinky extends movimiento{
         int i = 1;
         int aux = X;
 
-        if((control.m.getElemento(aux-1, Y) == 0 || control.m.getElemento(aux-1, Y) == 3) && !Alerta(1)){
+        if(CanMoveUp()){ //&& !Alerta(1)){
             control.v.rojito.setBounds(Y*40,(X-i)*40, 40, 40); 
             if(control.m.getElemento(aux-1, Y) == 3){
                 try {
@@ -157,7 +199,7 @@ public class Blinky extends movimiento{
 
     private void izquierdaV() throws InterruptedException{
 
-        if(control.m.getElemento(X, Y-1) == 0){
+        if(CanMoveLeftV()){
             control.v.rojito.setBounds((Y-1)*40,X*40, 40, 40);
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X, Y-1, 2);
@@ -173,7 +215,7 @@ public class Blinky extends movimiento{
     
      private void derechaV() throws InterruptedException{
         
-        if(control.m.getElemento(X, Y+1) == 0){
+        if(CanMoveRightV()){
             control.v.rojito.setBounds((Y+1)*40,X*40, 40, 40);
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X, Y+1, 2);
@@ -189,7 +231,7 @@ public class Blinky extends movimiento{
     
     private void abajoV() throws InterruptedException{
         
-        if(control.m.getElemento(X+1, Y) == 0){
+        if(CanMoveDownV()){
             control.v.rojito.setBounds(Y*40,(X+1)*40, 40, 40);
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X+1, Y, 2);
@@ -205,7 +247,7 @@ public class Blinky extends movimiento{
     
     private void arribaV() throws InterruptedException{
         
-        if(control.m.getElemento(X-1, Y) == 0){
+        if(CanMoveUpV()){
             control.v.rojito.setBounds(Y*40,(X-1)*40, 40, 40);
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X-1, Y, 2);
