@@ -46,24 +46,21 @@ public class Pinky extends movimiento{
 
     @Override
     public void moveLeft() {
-        int i = 1;
-        int aux = Y;
-
-        if((control.m.getElemento(X, aux-1) == 0 || control.m.getElemento(X, aux-1) == 3) && !Alerta(4)){
-            control.v.rosadito.setBounds((Y-i)*40,X*40, 40, 40); 
-            if(control.m.getElemento(X, aux-1) == 3){
+        
+        if((control.m.getElemento(X, Y - 1) == 0 || control.m.getElemento(X, Y - 1) == 3) && !Alerta(4)){
+            control.v.rosadito.setBounds((Y - 1)*40,X*40, 40, 40); 
+            if(control.m.getElemento(X, Y - 1) == 3){
                 try {
                     //control.v.cereza.setVisible(false);
-                    if(control.m.getElemento(X, aux-1) == 3) control.m.QuitaElemento(X, aux-1);
+                    if(control.m.getElemento(X, Y - 1) == 3) control.m.QuitaElemento(X, Y - 1);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Pinky.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            control.m.QuitaElemento(X, aux);
-            control.m.AgregaElemento(X, Y-i, 2);
-            setY(Y-i);
-            aux--;i++;
+            control.m.QuitaElemento(X, Y);
+            control.m.AgregaElemento(X, Y - 1, 2);
+            setY(Y - 1);
             try {
                 Thread.sleep(getVelocidad());
             } catch (InterruptedException ex) {
@@ -75,24 +72,20 @@ public class Pinky extends movimiento{
     @Override
     public void moveRight() {
       
-        int i = 1;
-        int aux = Y;
-
-        if((control.m.getElemento(X, aux+1) == 0 || control.m.getElemento(X, aux+1) == 3) && !Alerta(3)){
-            control.v.rosadito.setBounds((Y+i)*40,X*40, 40, 40); 
-            if(control.m.getElemento(X, aux+1) == 3){
+        if((control.m.getElemento(X, Y + 1) == 0 || control.m.getElemento(X, Y + 1) == 3) && !Alerta(3)){
+            control.v.rosadito.setBounds((Y + 1)*40,X*40, 40, 40); 
+            if(control.m.getElemento(X, Y + 1) == 3){
                 try {
                     //control.v.cereza.setVisible(false);
-                    if(control.m.getElemento(X, aux+1) == 3) control.m.QuitaElemento(X, aux+1);
+                    if(control.m.getElemento(X, Y + 1) == 3) control.m.QuitaElemento(X, Y + 1);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Pinky.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            control.m.QuitaElemento(X, aux);
-            control.m.AgregaElemento(X, Y+i, 2);
-            setY(Y+i);
-            aux++;i++;
+            control.m.QuitaElemento(X, Y);
+            control.m.AgregaElemento(X, Y + 1, 2);
+            setY(Y + 1);
             try {
                 Thread.sleep(getVelocidad());
             } catch (InterruptedException ex) {
@@ -103,24 +96,21 @@ public class Pinky extends movimiento{
 
     @Override
     public void moveDown() {
-        int i = 1;
-        int aux = X;
 
-        if((control.m.getElemento(aux+1, Y) == 0 || control.m.getElemento(aux+1, Y) == 3) && !Alerta(2)){
-            control.v.rosadito.setBounds(Y*40,(X+i)*40, 40, 40); 
-            if(control.m.getElemento(aux+1, Y) == 3){
+        if((control.m.getElemento(X + 1, Y) == 0 || control.m.getElemento(X + 1, Y) == 3) && !Alerta(2)){
+            control.v.rosadito.setBounds(Y*40,(X + 1)*40, 40, 40); 
+            if(control.m.getElemento(X + 1, Y) == 3){
                 try {
                     //control.v.cereza.setVisible(false);
-                    if(control.m.getElemento(aux+1, Y) == 3) control.m.QuitaElemento(aux+1, Y);
+                    if(control.m.getElemento(X + 1, Y) == 3) control.m.QuitaElemento(X + 1, Y);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Pinky.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            control.m.QuitaElemento(aux, Y);
-            control.m.AgregaElemento(X+i, Y, 2);
-            setX(X+i);
-            aux++;i++;
+            control.m.QuitaElemento(X, Y);
+            control.m.AgregaElemento(X + 1, Y, 2);
+            setX(X + 1);
             try {
                 Thread.sleep(getVelocidad());
             } catch (InterruptedException ex) {
@@ -131,25 +121,21 @@ public class Pinky extends movimiento{
 
     @Override
     public void moveUp() {
-        
-        int i = 1;
-        int aux = X;
 
-        if((control.m.getElemento(aux-1, Y) == 0 || control.m.getElemento(aux-1, Y) == 3) && !Alerta(1)){
-            control.v.rosadito.setBounds(Y*40,(X-i)*40, 40, 40); 
-            if(control.m.getElemento(aux-1, Y) == 3){
+        if((control.m.getElemento(X - 1, Y) == 0 || control.m.getElemento(X - 1, Y) == 3) && !Alerta(1)){
+            control.v.rosadito.setBounds(Y*40,(X - 1)*40, 40, 40); 
+            if(control.m.getElemento(X - 1, Y) == 3){
                 try {
                     //control.v.cereza.setVisible(false);
-                    if(control.m.getElemento(aux-1, Y) == 3) control.m.QuitaElemento(aux-1, Y);
+                    if(control.m.getElemento(X - 1, Y) == 3) control.m.QuitaElemento(X - 1, Y);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Pinky.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            control.m.QuitaElemento(aux, Y);
-            control.m.AgregaElemento(X-i, Y, 2);
-            setX(X-i);
-            aux--;i++;
+            control.m.QuitaElemento(X, Y);
+            control.m.AgregaElemento(X - 1, Y, 2);
+            setX(X - 1);
             try {
                 Thread.sleep(getVelocidad());
             } catch (InterruptedException ex) {
@@ -196,7 +182,7 @@ public class Pinky extends movimiento{
             control.v.rosadito.setBounds(Y*40,(X+1)*40, 40, 40);
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X+1, Y, 2);
-            setX(X-1);
+            setX(X+1);
             try {
                 Thread.sleep(getVelocidad());
             } catch (InterruptedException ex) {
