@@ -24,8 +24,7 @@ public class Inky extends movimiento{
         }
     }
     
-    public void move() throws InterruptedException{//El fantasma se mueve dependiendo de el estado en el que el pacman se encuentre
-        
+    public void moveRandom() throws InterruptedException{
         if(estadoNormal){
             moveDown();
             moveUp();
@@ -42,6 +41,46 @@ public class Inky extends movimiento{
                 moveUp();
                 moveLeft();
                 moveRight();
+            }
+        }
+    }
+    
+    public void move() throws InterruptedException{//El fantasma se mueve dependiendo de el estado en el que el pacman se encuentre
+        
+        if(estadoNormal){
+            
+            int movimiento = Maximiza();
+            switch(movimiento){
+                case 0 :
+                    moveLeft();
+                    //break;
+                case 1 :
+                    moveRight();
+                    //break;
+                case 2 :
+                    moveDown();
+                    //break;
+                case 3 :
+                    moveUp();
+                    //break;
+                default : moveRandom();
+            }
+        }else{
+            int movimiento = Minimiza();
+            switch(movimiento){
+                case 0 :
+                    izquierdaV();
+                    //break;
+                case 1 :
+                    derechaV();
+                    //break;
+                case 2 :
+                    abajoV();
+                    //break;
+                case 3 :
+                    arribaV();
+                    //break;
+                default : moveRandom();
             }
         }
     }
@@ -148,8 +187,12 @@ public class Inky extends movimiento{
 
     private void izquierdaV() throws InterruptedException{
 
-        if(control.m.getElemento(X, Y-1) == 0){
+        if(CanMoveLeftV()){
             control.v.azulito.setBounds((Y-1)*40,X*40, 40, 40);
+            if(control.m.getElemento(X, Y-1) == 9){
+                control.m.QuitaElemento(X, Y-1);
+                control.v.eliminar(X, (Y-1));
+            }
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X, Y-1, 2);
             setY(Y-1);
@@ -164,8 +207,12 @@ public class Inky extends movimiento{
     
      private void derechaV() throws InterruptedException{
         
-        if(control.m.getElemento(X, Y+1) == 0){
+        if(CanMoveRightV()){
             control.v.azulito.setBounds((Y+1)*40,X*40, 40, 40);
+            if(control.m.getElemento(X, Y+1) == 9){
+                control.m.QuitaElemento(X, Y+1);
+                control.v.eliminar(X, (Y+1));
+            }
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X, Y+1, 2);
             setY(Y+1);
@@ -180,8 +227,12 @@ public class Inky extends movimiento{
     
     private void abajoV() throws InterruptedException{
         
-        if(control.m.getElemento(X+1, Y) == 0){
+        if(CanMoveDownV()){
             control.v.azulito.setBounds(Y*40,(X+1)*40, 40, 40);
+            if(control.m.getElemento(X+1, Y) == 9){
+                control.m.QuitaElemento(X+1, Y);
+                control.v.eliminar(X+1, Y);
+            }
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X+1, Y, 2);
             setX(X + 1);
@@ -196,8 +247,12 @@ public class Inky extends movimiento{
     
     private void arribaV() throws InterruptedException{
         
-        if(control.m.getElemento(X-1, Y) == 0){
+        if(CanMoveUpV()){
             control.v.azulito.setBounds(Y*40,(X-1)*40, 40, 40);
+            if(control.m.getElemento(X - 1, Y) == 9){
+                control.m.QuitaElemento(X - 1, Y);
+                control.v.eliminar(X-1, Y);
+            }
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X-1, Y, 2);
             setX(X-1);

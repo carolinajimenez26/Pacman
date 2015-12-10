@@ -15,6 +15,7 @@ public class EstadoNormal extends EstadoPacman{
     @Override
     public void SetEstado() {
         control.mv_llamita.Comenzar(true);//empieza a disparar
+        control.mv_llamita.start();
         control.v.setImagenNormal();//cambia la imagen del pacman
     }
 }

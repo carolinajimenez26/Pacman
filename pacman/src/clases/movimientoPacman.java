@@ -66,7 +66,7 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
                 
                 if(!control.getEstadoNormal()) startCounting();//si no está en estado normal, debe ir contando
                 
-                if(contador == 50){
+                if(contador == 10){
                     setEstado(new EstadoNormal(control));//volvemos al estado original
                     contador = 0;//volvemos a inicializar
                     control.ChangeEstadoNormal();//cambia de estado MACHETEEEE

@@ -187,6 +187,10 @@ public class Clyde  extends movimiento{
 
         if(control.m.getElemento(X, Y-1) == 0){
             control.v.amarillito.setBounds((Y-1)*40,X*40, 40, 40);
+            if(control.m.getElemento(X, Y-1) == 9){
+                control.m.QuitaElemento(X, Y-1);
+                control.v.eliminar((Y-1), X);
+            }
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X, Y-1, 2);
             setY(Y-1);
@@ -203,6 +207,10 @@ public class Clyde  extends movimiento{
         
         if(control.m.getElemento(X, Y+1) == 0){
             control.v.amarillito.setBounds((Y+1)*40,X*40, 40, 40);
+            if(control.m.getElemento(X, Y+1) == 9){
+                control.m.QuitaElemento(X, Y+1);
+                control.v.eliminar(X, (Y+1));
+            }
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X, Y+1, 2);
             setY(Y + 1);
@@ -219,6 +227,10 @@ public class Clyde  extends movimiento{
         
         if(control.m.getElemento(X+1, Y) == 0){
             control.v.amarillito.setBounds(Y*40,(X+1)*40, 40, 40);
+            if(control.m.getElemento(X + 1, Y) == 9){
+                control.m.QuitaElemento(X + 1, Y);
+                control.v.eliminar(X+1, Y);
+            }
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X+1, Y, 2);
             setX(X + 1);
@@ -235,6 +247,10 @@ public class Clyde  extends movimiento{
         
         if(control.m.getElemento(X-1, Y) == 0){
             control.v.amarillito.setBounds(Y*40,(X-1)*40, 40, 40);
+            if(control.m.getElemento(X - 1, Y) == 9){
+                control.m.QuitaElemento(X - 1, Y);
+                control.v.eliminar(X-1, Y);
+            }
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X-1, Y, 2);
             setX(X-1);

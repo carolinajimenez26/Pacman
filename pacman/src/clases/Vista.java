@@ -154,10 +154,8 @@ public class Vista extends JFrame{
    
     
     public void eliminar(int X, int Y){//Elimina un elemento en estas posiciones
-                    System.out.println("X: "+X+" Y: "+Y );
 
         if(pacman.getLocation().x==Y*40 && pacman.getLocation().y==X*40){
-            System.out.println("Muere pacman");
                 pacman.setVisible(false);
                 Terminar();
         }
