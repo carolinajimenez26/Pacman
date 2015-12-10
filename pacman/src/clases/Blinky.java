@@ -90,7 +90,7 @@ public class Blinky extends movimiento{
             control.v.rojito.setBounds((Y - 1)*40,X*40, 40, 40); 
             if(control.m.getElemento(X, Y-1) == 3){
                 try {
-                    if(control.m.getElemento(X, Y - 1) == 3) control.m.QuitaElemento(X, Y - 1);
+                    control.m.QuitaElemento(X, Y - 1);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Blinky.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,7 +116,7 @@ public class Blinky extends movimiento{
             if(control.m.getElemento(X, Y + 1) == 3){
                 try {
                     //control.v.cereza.setVisible(false);
-                    if(control.m.getElemento(X, Y + 1) == 3) control.m.QuitaElemento(X, Y + 1);
+                    control.m.QuitaElemento(X, Y + 1);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Blinky.class.getName()).log(Level.SEVERE, null, ex);
@@ -140,7 +140,6 @@ public class Blinky extends movimiento{
             control.v.rojito.setBounds(Y*40,(X + 1)*40, 40, 40); 
             if(control.m.getElemento(X + 1, Y) == 3){
                 try {
-                    //control.v.cereza.setVisible(false);
                     if(control.m.getElemento(X + 1, Y) == 3) control.m.QuitaElemento(X + 1, Y);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
@@ -165,8 +164,7 @@ public class Blinky extends movimiento{
             control.v.rojito.setBounds(Y*40,(X - 1)*40, 40, 40); 
             if(control.m.getElemento(X - 1, Y) == 3){
                 try {
-                    //control.v.cereza.setVisible(false);
-                    if(control.m.getElemento(X - 1, Y) == 3) control.m.QuitaElemento(X - 1, Y);
+                    control.m.QuitaElemento(X - 1, Y);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Blinky.class.getName()).log(Level.SEVERE, null, ex);
@@ -187,6 +185,10 @@ public class Blinky extends movimiento{
 
         if(CanMoveLeftV()){
             control.v.rojito.setBounds((Y-1)*40,X*40, 40, 40);
+            if(control.m.getElemento(X - 1, Y) == 9){
+                control.m.QuitaElemento(X - 1, Y);
+                control.v.eliminar(X, (Y-1));
+            }
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X, Y-1, 2);
             setY(Y-1);
@@ -203,6 +205,10 @@ public class Blinky extends movimiento{
         
         if(CanMoveRightV()){
             control.v.rojito.setBounds((Y+1)*40,X*40, 40, 40);
+            if(control.m.getElemento(X - 1, Y) == 9){
+                control.m.QuitaElemento(X, Y+1);
+                control.v.eliminar(X, (Y+1));
+            }
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X, Y+1, 2);
             setY(Y+1);
@@ -219,6 +225,10 @@ public class Blinky extends movimiento{
         
         if(CanMoveDownV()){
             control.v.rojito.setBounds(Y*40,(X+1)*40, 40, 40);
+            if(control.m.getElemento(X + 1, Y) == 9){
+                control.m.QuitaElemento(X + 1, Y);
+                control.v.eliminar((X+1), Y);
+            }
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X+1, Y, 2);
             setX(X+1);
@@ -235,6 +245,10 @@ public class Blinky extends movimiento{
         
         if(CanMoveUpV()){
             control.v.rojito.setBounds(Y*40,(X-1)*40, 40, 40);
+            if(control.m.getElemento(X - 1, Y) == 9){
+                control.m.QuitaElemento(X - 1, Y);
+                control.v.eliminar((X-1), Y);
+            }
             control.m.QuitaElemento(X, Y);
             control.m.AgregaElemento(X-1, Y, 2);
             setX(X-1);

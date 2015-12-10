@@ -210,19 +210,19 @@ public abstract class movimiento extends Thread implements Observer{
     }
     
     public boolean CanMoveLeftV(){//Estado normal
-        return control.m.getElemento(X, Y-1) == 0;
+        return control.m.getElemento(X, Y-1) == 0 || control.m.getElemento(X, Y-1) == 9;
     }
     
-    public boolean CanMoveRightV(){//Estado normal
-        return control.m.getElemento(X, Y+1) == 0;
+    public boolean CanMoveRightV(){//Estado vulnerable
+        return control.m.getElemento(X, Y+1) == 0 || control.m.getElemento(X, Y+1) == 9;
     }
     
-    public boolean CanMoveDownV(){//Estado normal
-        return control.m.getElemento(X+1, Y) == 0;
+    public boolean CanMoveDownV(){
+        return control.m.getElemento(X+1, Y) == 0 || control.m.getElemento(X+1, Y) == 9 ;
     }
     
     public boolean CanMoveUpV(){//Estado normal
-        return control.m.getElemento(X-1, Y) == 0;
+        return control.m.getElemento(X-1, Y) == 0 || control.m.getElemento(X-1, Y) == 9;
     }
      
 }

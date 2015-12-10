@@ -66,13 +66,13 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
                 
                 if(!control.getEstadoNormal()) startCounting();//si no está en estado normal, debe ir contando
                 
-                if(contador == 50){//¡¡¡CAMBIAAAAAARR!!!
+                if(contador == 50){
                     setEstado(new EstadoNormal(control));//volvemos al estado original
                     contador = 0;//volvemos a inicializar
                     control.ChangeEstadoNormal();//cambia de estado MACHETEEEE
                 }
-                System.err.println("Contador:"+contador);
-                System.out.println("EstadoNormal: "+ control.getEstadoNormal());
+                //System.err.println("Contador:"+contador);
+                //System.out.println("EstadoNormal: "+ control.getEstadoNormal());
                 
                 //IZQUIERDA
                 if(teclaActual == 37){

@@ -21,7 +21,7 @@ public class Clyde  extends movimiento{
             try {
                 move();
             } catch (InterruptedException ex) {
-                Logger.getLogger(Clyde.class.getName()).log(Level.SEVERE, null, ex);
+               // Logger.getLogger(Clyde.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -93,7 +93,7 @@ public class Clyde  extends movimiento{
             control.v.amarillito.setBounds((Y - 1)*40,X*40, 40, 40); 
             if(control.m.getElemento(X, Y - 1) == 3){
                 try {
-                    if(control.m.getElemento(X, Y - 1) == 3) control.m.QuitaElemento(X, Y - 1);//elimina la cereza de la matriz
+                    control.m.QuitaElemento(X, Y - 1);//elimina la cereza de la matriz
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Clyde.class.getName()).log(Level.SEVERE, null, ex);
@@ -117,9 +117,8 @@ public class Clyde  extends movimiento{
             control.v.amarillito.setBounds((Y + 1)*40,X*40, 40, 40); 
             if(control.m.getElemento(X, Y + 1) == 3){
                 try {
-                    //control.v.eliminar(X, aux+1);//elimina la cereza del juego
-                    //control.v.cereza.setVisible(false);
-                    if(control.m.getElemento(X, Y + 1) == 3) control.m.QuitaElemento(X, Y + 1);//elimina la cereza de la matriz
+                    //if(control.m.getElemento(X, Y + 1) == 3)
+                    control.m.QuitaElemento(X, Y + 1);//elimina la cereza de la matriz
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Clyde.class.getName()).log(Level.SEVERE, null, ex);
@@ -143,7 +142,7 @@ public class Clyde  extends movimiento{
             control.v.amarillito.setBounds(Y*40,(X + 1)*40, 40, 40); 
             if(control.m.getElemento(X + 1, Y) == 3){
                 try {
-                    if(control.m.getElemento(X + 1, Y) == 3) control.m.QuitaElemento(X + 1, Y);//elimina la cereza de la matriz
+                    control.m.QuitaElemento(X + 1, Y);//elimina la cereza de la matriz
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Clyde.class.getName()).log(Level.SEVERE, null, ex);
@@ -167,7 +166,7 @@ public class Clyde  extends movimiento{
             control.v.amarillito.setBounds(Y*40,(X - 1)*40, 40, 40); 
             if(control.m.getElemento(X - 1, Y) == 3){
                 try {
-                    if(control.m.getElemento(X - 1, Y) == 3) control.m.QuitaElemento(X - 1, Y);//elimina la cereza de la matriz
+                    control.m.QuitaElemento(X - 1, Y);//elimina la cereza de la matriz
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Clyde.class.getName()).log(Level.SEVERE, null, ex);
