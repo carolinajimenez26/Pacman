@@ -15,8 +15,7 @@ public class Llama extends movimiento{
     @Override
     public void run() {
         while(comenzar){
-            System.err.println();//sin esto no funciona XD
-            //System.out.println("LLAMA");
+            System.err.print("");//sin esto no funciona XD
             if(control.getTeclaLlama() == 32 && getEstadoNormal()){//Sólo puede disparar si está en estado normal
               
                 if(control.getTeclaActiva() == 37){ //Izquierda
