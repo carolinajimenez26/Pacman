@@ -1,0 +1,16 @@
+Se descarga el .jar y se ejecuta el programa.
+
+Cómo jugar:
+
+    Teclas: 
+        Arriba
+        Abajo
+        Izquierda
+        Derecha
+        Barra espaciadora
+Con la barra espaciadora se lanzan llamas.
+
+Cuando el fantasma se come la cereza, el pacman se baja del carro, 
+y quedamos en estado vulnerable, donde los fantasmas ya nos pueden 
+matar; además si no se está en el carro, no se puede disparar.
+
