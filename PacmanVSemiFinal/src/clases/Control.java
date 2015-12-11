@@ -1,8 +1,14 @@
 
 package clases;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 /**
  *Esta clase se encargará de hacer la comunicación entre la Vista y el Modelo, por ende, 
@@ -10,12 +16,13 @@ import java.util.Observer;
  * el pacman, la llama y la cereza). Cada que se haga un llamado a esta clase, ésta decidirá si debe
  * hacer el cambio directamente en la Vista o en el Modelo, o en ambas.
  */
-public class Control {
+public class Control implements ActionListener{
     //se deben crear todos los objetos acá, menos los tipo imagen
     //se debe tener un objeto de la clase Vista y otro de la clase Modelo
     //Cada que se presione una tecla, Vista hará llamado a esta clase para que cambie los 
     //datos en la matriz lógica y modifique desde aquí las imágenes del JFrame
-    
+    JButton reinicio;
+    JFrame auxiliar;
     Vista v;
     Modelo m;
     movimientoPacman mv_pacman;
@@ -65,6 +72,19 @@ public class Control {
         mv_pacman.addObserver(mv_pinky);
         //mv_pacman.addObserver((Observer) mv_llamita);
 
+        reinicio= new JButton("REINICIAR");
+        reinicio.addActionListener(this);
+        auxiliar = new JFrame();
+        auxiliar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        auxiliar.getContentPane().add(reinicio);
+        auxiliar.pack();
+        auxiliar.setSize(200, 200);
+        
+        auxiliar.add(reinicio);
+        
+        reinicio.setBounds(12*40, 16*40, 160, 30);
+        
+        
         //Inicializamos los hilos
         mv_clyde.start();
         mv_pinky.start();
@@ -72,6 +92,8 @@ public class Control {
         mv_inky.start();
         mv_llamita.start();
         mv_pacman.run();
+        
+        
     }
     
     public boolean getEstadoNormal(){
@@ -89,6 +111,7 @@ public class Control {
     
     public void Terminar(){//Terminar los hilos de ejecución
         //v.Terminar(); //también dejamos de mostrar todos los elementos
+        auxiliar.setVisible(true);
         mv_pacman.Comenzar(false);
         mv_llamita.Comenzar(false);
         mv_pinky.Comenzar(false);
@@ -98,6 +121,19 @@ public class Control {
         
         if(morir == 4) v.GANASTE.setVisible(true);
         else v.PERDISTE.setVisible(true);
+    }
+    
+    public void actionPerformed(ActionEvent ae){
+        if(ae.getSource() == reinicio){
+            auxiliar.setVisible(false);
+            v.dispose();
+            //System.exit(WIDTH);
+            try {
+                this.inicializar();
+            } catch (IOException ex) {
+                Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
     public void EstadoVulnerable() throws InterruptedException{

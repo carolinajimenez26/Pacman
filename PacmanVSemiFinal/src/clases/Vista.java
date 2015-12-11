@@ -18,13 +18,12 @@ import javax.swing.JFrame;
  * El usuario estará interactuando constantemente con la Vista, y cada que se realice un cambio, 
  * esta clase se comunicará con la clase control, que se encargará de hacer los cambios pertinentes
  */
-public class Vista extends JFrame implements ActionListener{
+public class Vista extends JFrame {
     //se debe crear el JFrame desde acá y sus componentes básicos
     //Debe tener métodos que permitan la creación de una imagen en cierta parte de la pantalla
     //Así como una que la elimine de aquí
     //En esta clase se crean todas las imagenes que se cargarán en el juego (Las tipo Imagen)
-    JButton reinicio;
-    JFrame auxiliar;
+    
     public static Imagen pacman;  
     public static Imagen PERDISTE;
     public static Imagen GANASTE;
@@ -109,18 +108,6 @@ public class Vista extends JFrame implements ActionListener{
         GANASTE.setVisible(false);
         //agregamos el panel principal a la ventana
         this.setContentPane(imagenPrincipal);
-        
-        reinicio= new JButton("REINICIAR");
-        reinicio.addActionListener(this);
-        auxiliar = new JFrame();
-        auxiliar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        auxiliar.getContentPane().add(reinicio);
-        auxiliar.pack();
-        auxiliar.setSize(200, 200);
-        
-        auxiliar.add(reinicio);
-        
-        reinicio.setBounds(12*40, 16*40, 160, 30);
        
         this.setVisible(true);
 
@@ -156,7 +143,7 @@ public class Vista extends JFrame implements ActionListener{
     }
     
     public void Terminar(){//Terminar significa poner invisible todos los elementos que habían en el juego
-        auxiliar.setVisible(true);
+        
         control.Terminar();
         amarillito.setVisible(false);
         rojito.setVisible(false);
@@ -227,18 +214,7 @@ public class Vista extends JFrame implements ActionListener{
         teclaLlama = tecla;
     }
     
-    public void actionPerformed(ActionEvent ae){
-        if(ae.getSource() == reinicio){
-            auxiliar.setVisible(false);
-            this.dispose();
-            //System.exit(WIDTH);
-            try {
-                control.inicializar();
-            } catch (IOException ex) {
-                Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
+    
     
     public class MyKeyListener implements KeyListener {
         //Cada que se haga una excitación a esta clase, se llama al KeyListener
