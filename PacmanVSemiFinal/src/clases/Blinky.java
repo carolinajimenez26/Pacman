@@ -185,8 +185,8 @@ public class Blinky extends movimiento{
 
         if(CanMoveLeftV()){
             control.v.rojito.setBounds((Y-1)*40,X*40, 40, 40);
-            if(control.m.getElemento(X - 1, Y) == 9){
-                control.m.QuitaElemento(X - 1, Y);
+            if(control.m.getElemento(X , Y-1) == 9){
+                control.m.QuitaElemento(X, Y-1);
                 control.v.eliminar(X, (Y-1));
             }
             control.m.QuitaElemento(X, Y);
@@ -205,7 +205,7 @@ public class Blinky extends movimiento{
         
         if(CanMoveRightV()){
             control.v.rojito.setBounds((Y+1)*40,X*40, 40, 40);
-            if(control.m.getElemento(X - 1, Y) == 9){
+            if(control.m.getElemento(X , Y+1) == 9){
                 control.m.QuitaElemento(X, Y+1);
                 control.v.eliminar(X, (Y+1));
             }

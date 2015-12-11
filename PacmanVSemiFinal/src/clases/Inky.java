@@ -88,12 +88,11 @@ public class Inky extends movimiento{
     @Override
     public void moveLeft() {
 
-        if((control.m.getElemento(X, Y - 1) == 0 || control.m.getElemento(X, Y - 1) == 3) && !Alerta(4)){
+        if(CanMoveLeft() && !Alerta(4)){
             control.v.azulito.setBounds((Y - 1)*40,X*40, 40, 40); 
             if(control.m.getElemento(X, Y - 1) == 3){
                 try {
-                    //control.v.cereza.setVisible(false);
-                    if(control.m.getElemento(X, Y - 1) == 3) control.m.QuitaElemento(X, Y - 1);
+                    control.m.QuitaElemento(X, Y - 1);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Inky.class.getName()).log(Level.SEVERE, null, ex);
@@ -113,12 +112,11 @@ public class Inky extends movimiento{
     @Override
     public void moveRight() {
       
-        if((control.m.getElemento(X, Y + 1) == 0 || control.m.getElemento(X, Y + 1) == 3) && !Alerta(3)){
+        if(CanMoveRight() && !Alerta(3)){
             control.v.azulito.setBounds((Y + 1)*40,X*40, 40, 40); 
             if(control.m.getElemento(X, Y + 1) == 3){
                 try {
-                    //control.v.cereza.setVisible(false);
-                    if(control.m.getElemento(X, Y + 1) == 3) control.m.QuitaElemento(X, Y + 1);
+                    control.m.QuitaElemento(X, Y + 1);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Inky.class.getName()).log(Level.SEVERE, null, ex);
@@ -138,12 +136,11 @@ public class Inky extends movimiento{
     @Override
     public void moveDown() {
 
-        if((control.m.getElemento(X + 1, Y) == 0 || control.m.getElemento(X+1, Y) == 3) && !Alerta(2)){
+        if(CanMoveDown() && !Alerta(2)){
             control.v.azulito.setBounds(Y*40,(X + 1)*40, 40, 40); 
             if(control.m.getElemento(X + 1, Y) == 3){
                 try {
-                    //control.v.cereza.setVisible(false);
-                    if(control.m.getElemento(X + 1, Y) == 3) control.m.QuitaElemento(X + 1, Y);
+                    control.m.QuitaElemento(X + 1, Y);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Inky.class.getName()).log(Level.SEVERE, null, ex);
@@ -163,12 +160,11 @@ public class Inky extends movimiento{
     @Override
     public void moveUp() {
 
-        if((control.m.getElemento(X - 1, Y) == 0 || control.m.getElemento(X - 1, Y) == 3) && !Alerta(1)){
+        if(CanMoveUp() && !Alerta(1)){
             control.v.azulito.setBounds(Y*40,(X - 1)*40, 40, 40); 
             if(control.m.getElemento(X - 1, Y) == 3){
                 try {
-                    //control.v.cereza.setVisible(false);
-                    if(control.m.getElemento(X - 1, Y) == 3) control.m.QuitaElemento(X - 1, Y);
+                    control.m.QuitaElemento(X - 1, Y);
                     control.EstadoVulnerable();//cambia a estado vulnerable
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Inky.class.getName()).log(Level.SEVERE, null, ex);

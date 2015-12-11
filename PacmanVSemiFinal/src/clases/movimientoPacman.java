@@ -61,7 +61,8 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
         try {
             while(comenzar){
                 
-                Thread.sleep(getVelocidad());
+               // System.err.println(" ");  
+              Thread.sleep(getVelocidad());
                 
                 if(!control.getEstadoNormal()) startCounting();//si no está en estado normal, debe ir contando
                 
@@ -81,7 +82,7 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
                          control.m.QuitaElemento(X, Y);
                          control.m.AgregaElemento(X, Y-1, 9);
                          setY(Y-1);
-                         Thread.sleep(getVelocidad());
+                         //Thread.sleep(getVelocidad());
                      }   
                 }
 
@@ -94,7 +95,7 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
                          control.m.QuitaElemento(X, Y);
                          control.m.AgregaElemento(X-1, Y, 9);
                          setX(X-1);
-                         Thread.sleep(getVelocidad());
+                         //Thread.sleep(getVelocidad());
                     } 
                 }
                 
@@ -110,7 +111,7 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
                          //System.out.println("X: " + getX() + " Y: " + getY());
                          //System.out.println("X: "+p.getFirst()+" Y:"+p.getSecond());//A ver si si se está moviendo
                          //System.err.println("elemento anterior: "+control.m.getElemento((p.getFirst()-1),(p.getSecond()-1)) );
-                         Thread.sleep(getVelocidad());
+                         //Thread.sleep(getVelocidad());
                     } 
                 }
                 
@@ -122,7 +123,7 @@ public class movimientoPacman extends Observable implements Runnable{//observamo
                          control.m.QuitaElemento(X, Y);
                          control.m.AgregaElemento(X+1, Y, 9);
                          setX(X+1);
-                         Thread.sleep(getVelocidad());
+                         //Thread.sleep(getVelocidad());
                     } 
                 }
                 

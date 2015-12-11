@@ -28,6 +28,10 @@ public class Control {
     private int morir = 0;//muere si todos los fantasmas se eliminan
     
     public Control() throws IOException{
+        inicializar();
+    }
+    
+    public void inicializar() throws IOException{
         estadoNormal = true;
         m = new Modelo();//inicializa modelo
         v = new Vista(this);//inicializa vista
@@ -68,7 +72,6 @@ public class Control {
         mv_inky.start();
         mv_llamita.start();
         mv_pacman.run();
-
     }
     
     public boolean getEstadoNormal(){

@@ -16,6 +16,7 @@ public class EstadoVulnerable extends EstadoPacman{//Este debe comunicarse con e
     @Override
     public void SetEstado() {
         control.mv_llamita.stop();//deja de disparar
+        //control.mv_llamita.Comenzar(false);
         control.v.setImagenVulnerable();//cambia la imagen del pacman
     }
     

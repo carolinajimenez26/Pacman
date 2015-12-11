@@ -40,17 +40,17 @@ public class Llama extends movimiento{
     @Override
     public void moveLeft() {
         Pair p = control.m.getCarro();
-        int X = control.v.pacman.getLocation().x;
-        int Y = control.v.pacman.getLocation().y;
+        int x = control.v.pacman.getLocation().x;
+        int y = control.v.pacman.getLocation().y;
         control.v.llamita.setImage("/imagenes/llama_left.png");
                     
             for(int i = 1; i <= 3; i++){
                 if(control.m.getElemento(p.getFirst(), p.getSecond() - i) != 1){//if(t.matriz[Y/40][(X-(40*i))/40] != 1)
                     if(control.m.getElemento(p.getFirst() - i, p.getSecond()) == 2){
-                        control.v.llamita.setBounds(X-(40*i), Y, 40, 40);
+                        control.v.llamita.setBounds(x-(40*i), y, 40, 40);
                         control.v.llamita.setVisible(true);
                          
-                        control.v.eliminar(Y/40, (X-(40*i))/40);//quita el fantasma del tablero de juego
+                        control.v.eliminar(y/40, (x-(40*i))/40);//quita el fantasma del tablero de juego
                         control.m.QuitaElemento(p.getFirst() - i, p.getSecond());//quita el elemento de la matriz
                        
                         try {
@@ -59,7 +59,7 @@ public class Llama extends movimiento{
                             Logger.getLogger(Llama.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }else{
-                        control.v.llamita.setBounds(X-(40*i), Y, 40, 40);
+                        control.v.llamita.setBounds(x-(40*i), y, 40, 40);
                         control.v.llamita.setVisible(true);
                         //No nos interesa poner la llama en la matriz
                         try {
@@ -81,8 +81,8 @@ public class Llama extends movimiento{
     @Override
     public void moveRight() {
         
-        int X = control.v.pacman.getLocation().x;
-        int Y = control.v.pacman.getLocation().y;
+        int x = control.v.pacman.getLocation().x;
+        int y = control.v.pacman.getLocation().y;
                     
         Pair p = control.m.getCarro();
         control.v.llamita.setImage("/imagenes/llama.png");
@@ -90,10 +90,10 @@ public class Llama extends movimiento{
             for(int i = 1; i <= 3; i++){
                 if(control.m.getElemento(p.getFirst(), p.getSecond() + i) != 1){
                     if(control.m.getElemento(p.getFirst(), p.getSecond() + i) == 2){
-                        control.v.llamita.setBounds(X+(40*i), Y, 40, 40);
+                        control.v.llamita.setBounds(x+(40*i), y, 40, 40);
                         control.v.llamita.setVisible(true);
                         
-                        control.v.eliminar(Y/40, (X+(40*i))/40);//quita el fantasma del tablero de juego
+                        control.v.eliminar(y/40, (x+(40*i))/40);//quita el fantasma del tablero de juego
                         control.m.QuitaElemento(p.getFirst(), p.getSecond() + i);
                         
                         try {
@@ -102,7 +102,7 @@ public class Llama extends movimiento{
                             Logger.getLogger(Llama.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }else{
-                        control.v.llamita.setBounds(X+(40*i), Y, 40, 40);
+                        control.v.llamita.setBounds(x+(40*i), y, 40, 40);
                         control.v.llamita.setVisible(true);
                         try {
                             Thread.sleep(100);
@@ -122,17 +122,17 @@ public class Llama extends movimiento{
     @Override
     public void moveDown() {
         Pair p = control.m.getCarro();
-        int X = control.v.pacman.getLocation().x;
-        int Y = control.v.pacman.getLocation().y;
+        int x = control.v.pacman.getLocation().x;
+        int y = control.v.pacman.getLocation().y;
         control.v.llamita.setImage("/imagenes/llama_down.png");
             
             for(int i = 1; i <= 3; i++){
                 if(control.m.getElemento(p.getFirst() + i, p.getSecond()) != 1){
                     if(control.m.getElemento(p.getFirst() + i, p.getSecond()) == 2){
-                        control.v.llamita.setBounds(X, Y+(40*i), 40, 40);
+                        control.v.llamita.setBounds(x, y+(40*i), 40, 40);
                         control.v.llamita.setVisible(true);
                         
-                        control.v.eliminar((Y+(40*i))/40,X/40);//quita el fantasma del tablero de juego
+                        control.v.eliminar((y+(40*i))/40,x/40);//quita el fantasma del tablero de juego
                         control.m.QuitaElemento(p.getFirst() + i, p.getSecond());
                         
                         try {
@@ -141,7 +141,7 @@ public class Llama extends movimiento{
                             Logger.getLogger(Llama.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }else{
-                        control.v.llamita.setBounds(X, Y+(40*i), 40, 40);
+                        control.v.llamita.setBounds(x, y+(40*i), 40, 40);
                         control.v.llamita.setVisible(true);
                         try {
                             Thread.sleep(100);
@@ -161,18 +161,18 @@ public class Llama extends movimiento{
     @Override
     public void moveUp() {
         Pair p = control.m.getCarro();
-        int X = control.v.pacman.getLocation().x;
-        int Y = control.v.pacman.getLocation().y;
+        int x = control.v.pacman.getLocation().x;
+        int y = control.v.pacman.getLocation().y;
         control.v.llamita.setImage("/imagenes/llama_up.png");
             
             for(int i = 1; i <= 3; i++){
                 if(control.m.getElemento(p.getFirst()- i, p.getSecond()) != 1){
                     if(control.m.getElemento(p.getFirst() + i, p.getSecond()) == 2){
-                        control.v.llamita.setBounds(X, Y-(40*i), 40, 40);
+                        control.v.llamita.setBounds(x, y-(40*i), 40, 40);
                         control.v.llamita.setVisible(true);
                          
-                        control.v.eliminar((Y-(40*i))/40,X/40);//quita el fantasma del tablero de juego
-                        control.m.QuitaElemento(p.getFirst() + i, p.getSecond());
+                        control.v.eliminar((y-(40*i))/40,x/40);//quita el fantasma del tablero de juego
+                        control.m.QuitaElemento(p.getFirst() - i, p.getSecond());
                        
                         try { 
                             Thread.sleep(100);
@@ -180,7 +180,7 @@ public class Llama extends movimiento{
                             Logger.getLogger(Llama.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }else{
-                        control.v.llamita.setBounds(X, Y-(40*i), 40, 40);
+                        control.v.llamita.setBounds(x, y-(40*i), 40, 40);
                          control.v.llamita.setVisible(true);
                         try {
                             Thread.sleep(100);

@@ -89,7 +89,7 @@ public class Clyde  extends movimiento{
     @Override
     public void moveLeft() {
 
-        if((control.m.getElemento(X, Y - 1) == 0 || control.m.getElemento(X, Y - 1) == 3) && !Alerta(4)){
+        if(CanMoveLeft() && !Alerta(4)){
             control.v.amarillito.setBounds((Y - 1)*40,X*40, 40, 40); 
             if(control.m.getElemento(X, Y - 1) == 3){
                 try {
@@ -113,7 +113,7 @@ public class Clyde  extends movimiento{
     @Override
     public void moveRight() {
 
-        if((control.m.getElemento(X, Y + 1) == 0 || control.m.getElemento(X, Y + 1) == 3) && !Alerta(3)){
+        if(CanMoveRight() && !Alerta(3)){
             control.v.amarillito.setBounds((Y + 1)*40,X*40, 40, 40); 
             if(control.m.getElemento(X, Y + 1) == 3){
                 try {
@@ -138,7 +138,7 @@ public class Clyde  extends movimiento{
     @Override
     public void moveDown() {
 
-        if((control.m.getElemento(X + 1, Y) == 0 || control.m.getElemento(X + 1, Y) == 3) && !Alerta(2)){
+        if(CanMoveDown() && !Alerta(2)){
             control.v.amarillito.setBounds(Y*40,(X + 1)*40, 40, 40); 
             if(control.m.getElemento(X + 1, Y) == 3){
                 try {
@@ -162,7 +162,7 @@ public class Clyde  extends movimiento{
     @Override
     public void moveUp() {
 
-        if((control.m.getElemento(X - 1, Y) == 0 || control.m.getElemento(X - 1, Y) == 3) && !Alerta(1)){
+        if(CanMoveUp() && !Alerta(1)){
             control.v.amarillito.setBounds(Y*40,(X - 1)*40, 40, 40); 
             if(control.m.getElemento(X - 1, Y) == 3){
                 try {
@@ -185,7 +185,7 @@ public class Clyde  extends movimiento{
 
     private void izquierdaV() throws InterruptedException{
 
-        if(control.m.getElemento(X, Y-1) == 0){
+        if(CanMoveLeftV()){
             control.v.amarillito.setBounds((Y-1)*40,X*40, 40, 40);
             if(control.m.getElemento(X, Y-1) == 9){
                 control.m.QuitaElemento(X, Y-1);
@@ -205,7 +205,7 @@ public class Clyde  extends movimiento{
     
      private void derechaV() throws InterruptedException{
         
-        if(control.m.getElemento(X, Y+1) == 0){
+        if(CanMoveRightV()){
             control.v.amarillito.setBounds((Y+1)*40,X*40, 40, 40);
             if(control.m.getElemento(X, Y+1) == 9){
                 control.m.QuitaElemento(X, Y+1);
@@ -225,7 +225,7 @@ public class Clyde  extends movimiento{
     
     private void abajoV() throws InterruptedException{
         
-        if(control.m.getElemento(X+1, Y) == 0){
+        if(CanMoveDownV()){
             control.v.amarillito.setBounds(Y*40,(X+1)*40, 40, 40);
             if(control.m.getElemento(X + 1, Y) == 9){
                 control.m.QuitaElemento(X + 1, Y);
@@ -245,7 +245,7 @@ public class Clyde  extends movimiento{
     
     private void arribaV() throws InterruptedException{
         
-        if(control.m.getElemento(X-1, Y) == 0){
+        if(CanMoveUpV()){
             control.v.amarillito.setBounds(Y*40,(X-1)*40, 40, 40);
             if(control.m.getElemento(X - 1, Y) == 9){
                 control.m.QuitaElemento(X - 1, Y);
